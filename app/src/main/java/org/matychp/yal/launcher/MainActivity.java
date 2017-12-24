@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                if(apps.get(position).getName().compareTo("Edit Apps") == 0) {
+                if(apps.get(position).getName().compareTo(getString(R.string.btn_editapps_activity_main)) == 0) {
                     Intent intent = new Intent (MainActivity.this, SelectApps.class);
                     startActivityForResult(intent, NEW_APPS);
                 } else {
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         Drawable addIcon = res.getDrawable(R.drawable.ic_add_box_black_24dp);
 
         apps.add(new Item(
-                "Edit Apps",
+                getString(R.string.btn_editapps_activity_main),
                 "",
                 addIcon
         ));
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                 addAddButton();
                 itemAdapter.notifyDataSetChanged();
             } else {
-                Toast.makeText(this, "Ocurrió un error al seleccionar las aplicaciones", Toast.LENGTH_LONG).show();
+
             }
         }
     }

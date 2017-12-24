@@ -20,6 +20,7 @@ import org.matychp.yal.R;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class SelectApps extends AppCompatActivity {
@@ -39,6 +40,7 @@ public class SelectApps extends AppCompatActivity {
 
         apps = new ArrayList<>();
         getApps();
+        Collections.sort(apps);
 
         itemWCBAdapter = new ItemWCBAdapter(SelectApps.this, R.layout.item_with_checkbox, apps);
 

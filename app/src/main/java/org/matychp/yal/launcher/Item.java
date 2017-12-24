@@ -1,10 +1,11 @@
 package org.matychp.yal.launcher;
 
 import android.graphics.drawable.Drawable;
+import android.support.annotation.NonNull;
 
 import java.io.Serializable;
 
-public class Item{
+public class Item implements Comparable<Item>{
 
     private String name, pack;
     private Drawable icon;
@@ -25,5 +26,16 @@ public class Item{
 
     public Drawable getIcon() {
         return icon;
+    }
+
+    @Override
+    public int compareTo(@NonNull Item i) {
+        if (name.compareTo(i.getName()) > 0){
+            return 1;
+        } else if (name.compareTo(i.getName()) < 0){
+            return -1;
+        } else {
+            return 0;
+        }
     }
 }
