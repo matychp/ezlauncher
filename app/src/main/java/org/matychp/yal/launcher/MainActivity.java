@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                if(apps.get(position).getName().compareTo(getString(R.string.btn_editapps_activity_main)) == 0) {
+                if(apps.get(position).getPack().compareTo("") == 0) {
                     Intent intent = new Intent (MainActivity.this, SelectApps.class);
                     startActivityForResult(intent, NEW_APPS);
                 } else {

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">YAL</string>
+    <string name="app_name">EZLauncher</string>
     <string name="btn_done_activity_selectapps">Done</string>
     <string name="btn_editapps_activity_main">Add/Remove Applications</string>
 </resources>
