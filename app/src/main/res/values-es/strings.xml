@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">EZLauncher</string>
+    <!--Common-->
+    <string name="btn_done">Listo</string>
+    <!--Activity SelectApps String's-->
+    <!--Activity Main String's-->
+    <string name="btn_editapps_activity_main">Agregar/Quitar Aplicaciones</string>
+    <string name="btn_settings_activity_main">Configuraciones</string>
+    <!--Activity Settings String's-->
+    <string name="swt_editapps_activity_main">Editar Aplicaciones</string>
+    <string name="swt_editapps_on_activity_main">>Editar Lista de Aplicaciones Habilitada</string>
+    <string name="swt_editapps_off_activity_main">>Editar Lista de Aplicaciones Deshabilitada</string>
+</resources>

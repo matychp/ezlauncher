@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">EZLauncher</string>
-    <string name="btn_done_activity_selectapps">Done</string>
+    <!--Common-->
+    <string name="btn_done">Done</string>
+    <!--Activity SelectApps String's-->
+    <!--Activity Main String's-->
     <string name="btn_editapps_activity_main">Add/Remove Applications</string>
+    <string name="btn_settings_activity_main">Settings</string>
+    <!--Activity Settings String's-->
+    <string name="swt_editapps_activity_main">Edit apps on/off</string>
+    <string name="swt_editapps_on_activity_main">Edit Apps Enabled</string>
+    <string name="swt_editapps_off_activity_main">Edit Apps Disabled</string>
 </resources>

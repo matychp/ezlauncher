@@ -21,7 +21,7 @@
         android:id="@+id/btn_done"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_done_activity_selectapps"
+        android:text="@string/btn_done"
         android:textSize="24sp"
         android:background="@color/colorAccent"
         android:textColor="@android:color/white"/>

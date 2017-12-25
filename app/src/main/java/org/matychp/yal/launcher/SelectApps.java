@@ -59,7 +59,6 @@ public class SelectApps extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
-                //intent.putStringArrayListExtra("new_apps", appsToString());
                 setResult(Activity.RESULT_OK, intent);
                 saveApps(appsToString());
                 finish();

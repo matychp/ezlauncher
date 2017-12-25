@@ -24,6 +24,9 @@
         <activity android:name=".launcher.SelectApps"
             android:theme="@style/AppTheme.Wallpaper">
         </activity>
+        <activity android:name=".launcher.Settings"
+            android:theme="@style/AppTheme.Wallpaper">
+        </activity>
     </application>
 
 </manifest>

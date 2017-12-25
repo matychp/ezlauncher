@@ -33,6 +33,10 @@ public class MainActivity extends AppCompatActivity {
     List<Item> apps;
 
     private static final int NEW_APPS = 1;
+    private static final int SETTINGS = 2;
+
+    SharedPreferences preferences;
+    SharedPreferences.Editor editor;
 
 
     @Override
@@ -40,9 +44,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        editor = preferences.edit();
+
         apps = new ArrayList<>();
         loadApps();
-        addAddButton();
+        loadFunctions();
 
         itemAdapter = new ItemAdapter(MainActivity.this, R.layout.item, apps);
 
@@ -53,8 +60,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 if(apps.get(position).getPack().compareTo("") == 0) {
-                    Intent intent = new Intent (MainActivity.this, SelectApps.class);
-                    startActivityForResult(intent, NEW_APPS);
+                    String name = apps.get(position).getName();
+                    if(name.compareTo(getString(R.string.btn_editapps_activity_main)) == 0){
+                        Intent intent = new Intent (MainActivity.this, SelectApps.class);
+                        startActivityForResult(intent, NEW_APPS);
+                    } else if(name.compareTo(getString(R.string.btn_settings_activity_main)) == 0){
+                        Intent intent = new Intent (MainActivity.this, Settings.class);
+                        startActivityForResult(intent, SETTINGS);
+                    }
                 } else {
                     openApp(apps.get(position).getPack());
                 }
@@ -62,12 +75,25 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void addAddButton(){
+    private void loadFunctions() {
         Resources res = getResources();
-        Drawable addIcon = res.getDrawable(R.drawable.ic_add_box_black_24dp);
+
+        //EditButton
+        if(preferences.getBoolean("swt_editapps", true)){
+            Drawable addIcon = res.getDrawable(R.drawable.ic_add_box_black_24dp);
+
+            apps.add(new Item(
+                    getString(R.string.btn_editapps_activity_main),
+                    "",
+                    addIcon
+            ));
+        }
+
+        //Settings Button
+        Drawable addIcon = res.getDrawable(R.drawable.ic_settings_applications_black_24dp);
 
         apps.add(new Item(
-                getString(R.string.btn_editapps_activity_main),
+                getString(R.string.btn_settings_activity_main),
                 "",
                 addIcon
         ));
@@ -84,14 +110,24 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(requestCode == NEW_APPS){
             if(resultCode == Activity.RESULT_OK) {
-                //List<String> newApps = data.getStringArrayListExtra("new_apps");
                 apps.clear();
                 loadApps();
-                addAddButton();
+                loadFunctions();
                 itemAdapter.notifyDataSetChanged();
             } else {
 
             }
+        } else if(requestCode == SETTINGS){
+            if(resultCode == Activity.RESULT_OK) {
+                apps.clear();
+                loadApps();
+                loadFunctions();
+                itemAdapter.notifyDataSetChanged();
+            } else {
+
+            }
+        } else {
+
         }
     }
 
