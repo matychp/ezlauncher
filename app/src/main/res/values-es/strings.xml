@@ -12,4 +12,5 @@
     <!--Activity Settings String's-->
     <string name="swt_selectapps">Editar Aplicaciones</string>
     <string name="cancel">Cancelar</string>
+    <string name="set_wallpaper">Elegir el fondo de pantalla</string>
 </resources>

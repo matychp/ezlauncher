@@ -12,4 +12,5 @@
     <!--Activity Settings String's-->
     <string name="swt_selectapps">Edit apps on/off</string>
     <string name="cancel">Cancel</string>
+    <string name="set_wallpaper">Set a wallpaper</string>
 </resources>
