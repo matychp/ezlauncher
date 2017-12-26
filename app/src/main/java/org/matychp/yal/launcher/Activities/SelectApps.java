@@ -5,9 +5,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -18,11 +20,13 @@ import com.google.gson.reflect.TypeToken;
 
 import org.matychp.yal.R;
 import org.matychp.yal.launcher.Adapters.CheckableAppAdapter;
+import org.matychp.yal.launcher.POJO.App;
 import org.matychp.yal.launcher.POJO.CheckableApp;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 
 public class SelectApps extends AppCompatActivity {
@@ -112,42 +116,36 @@ public class SelectApps extends AppCompatActivity {
      */
     private void getApps(){
         PackageManager pm = getPackageManager();
-        List<ApplicationInfo> packages = pm.getInstalledApplications(PackageManager.GET_META_DATA);
 
         List<String> savedApps = loadApps();
 
-        if( savedApps != null ){
-            for(ApplicationInfo packageInfo : packages){
-                if ((packageInfo.flags & ApplicationInfo.FLAG_SYSTEM) == 0){
-                    if(savedApps.contains(packageInfo.packageName)){
-                        apps.add(new CheckableApp(
-                                pm.getApplicationLabel(packageInfo).toString(),
-                                packageInfo.packageName,
-                                pm.getApplicationIcon(packageInfo),
-                                true
-                        ));
-                    } else {
-                        apps.add(new CheckableApp(
-                                pm.getApplicationLabel(packageInfo).toString(),
-                                packageInfo.packageName,
-                                pm.getApplicationIcon(packageInfo),
-                                false
-                        ));
-                    }
-                }
-            }
-        } else {
-            for(ApplicationInfo packageInfo : packages){
-                if ((packageInfo.flags & ApplicationInfo.FLAG_SYSTEM) == 0){
-                    apps.add(new CheckableApp(
-                            pm.getApplicationLabel(packageInfo).toString(),
-                            packageInfo.packageName,
-                            pm.getApplicationIcon(packageInfo),
-                            false
-                    ));
-                }
-            }
+        Intent intent = new Intent(Intent.ACTION_MAIN, null);
+        intent.addCategory(Intent.CATEGORY_LAUNCHER);
+        List<ResolveInfo> resInfos = pm.queryIntentActivities(intent, 0);
+
+        for(ResolveInfo ri:resInfos){
+            CheckableApp app = new CheckableApp(
+                    ri.loadLabel(pm).toString(),
+                    ri.activityInfo.packageName,
+                    ri.activityInfo.loadIcon(pm),
+                    isContained(savedApps,ri.activityInfo.packageName));
+            apps.add(app);
         }
+    }
+
+    /**
+     * Retorna true si una aplicación está contenida en la lista de aplicaciones seleccionadas almacenadas,
+     * false en caso contrario.
+     * @param savedApps Lista de aplicaciones seleccionadas almacenada.
+     * @param app Una aplicación a comparar si está contenida.
+     * @return boolean.
+     */
+    private boolean isContained(List<String> savedApps, String app){
+        if (savedApps == null) return false;
+        if(savedApps.contains(app)){
+            return true;
+        }
+        return false;
     }
 
     /**
