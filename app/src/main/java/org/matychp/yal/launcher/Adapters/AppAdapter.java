@@ -1,4 +1,4 @@
-package org.matychp.yal.launcher;
+package org.matychp.yal.launcher.Adapters;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,15 +10,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.matychp.yal.R;
+import org.matychp.yal.launcher.POJO.App;
 
 import java.util.List;
 
-public class ItemAdapter extends ArrayAdapter<Item>{
+public class AppAdapter extends ArrayAdapter<App>{
 
     private Context context;
 
-    public ItemAdapter(Context context, int resourceId, List<Item> items){
-        super(context, resourceId, items);
+    public AppAdapter(Context context, int resourceId, List<App> apps){
+        super(context, resourceId, apps);
         this.context = context;
     }
 
@@ -29,11 +30,11 @@ public class ItemAdapter extends ArrayAdapter<Item>{
 
     public View getView(int position, View convertView, ViewGroup parent){
         ViewHolder holder;
-        Item rowItem = getItem(position);
+        App rowApp = getItem(position);
 
         LayoutInflater mInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         if(convertView == null){
-            convertView =   mInflater.inflate(R.layout.item, null);
+            convertView =   mInflater.inflate(R.layout.app, null);
             holder = new ViewHolder();
             holder.tv_name = convertView.findViewById(R.id.tv_name);
             holder.iv_icon = convertView.findViewById(R.id.iv_icon);
@@ -42,9 +43,9 @@ public class ItemAdapter extends ArrayAdapter<Item>{
             holder = (ViewHolder)   convertView.getTag();
         }
 
-        if(rowItem != null){
-            holder.tv_name.setText(rowItem.getName());
-            holder.iv_icon.setImageDrawable(rowItem.getIcon());
+        if(rowApp != null){
+            holder.tv_name.setText(rowApp.getName());
+            holder.iv_icon.setImageDrawable(rowApp.getIcon());
         }
 
         return convertView;

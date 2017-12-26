@@ -4,17 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="15dp"
+    android:padding="10dp"
     android:gravity="left"
     android:background="#ffffff">
-
-    <CheckBox
-        android:id="@+id/cb_selected"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:layout_gravity="center"/>
 
     <ImageView
         android:id="@+id/iv_icon"

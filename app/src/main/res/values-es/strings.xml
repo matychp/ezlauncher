@@ -1,13 +1,15 @@
 <resources>
     <string name="app_name">EZLauncher</string>
     <!--Common-->
-    <string name="btn_done">Listo</string>
+    <string name="btn_done">Guardar</string>
     <!--Activity SelectApps String's-->
-    <!--Activity Main String's-->
-    <string name="btn_editapps_activity_main">Agregar/Quitar Aplicaciones</string>
+    <!--Activity Home String's-->
+    <string name="btn_editapps_activity_main">Agregar o quitar aplicaciones</string>
     <string name="btn_settings_activity_main">Configuraciones</string>
+    <string name="successfully_edited_applications">Aplicaciones editadas exitosamente</string>
+    <string name="successfully_edited_settings">Configuraciones editadas exitosamente</string>
+    <string name="canceled">Cancelado</string>
     <!--Activity Settings String's-->
-    <string name="swt_editapps_activity_main">Editar Aplicaciones</string>
-    <string name="swt_editapps_on_activity_main">>Editar Lista de Aplicaciones Habilitada</string>
-    <string name="swt_editapps_off_activity_main">>Editar Lista de Aplicaciones Deshabilitada</string>
+    <string name="swt_selectapps">Editar Aplicaciones</string>
+    <string name="cancel">Cancelar</string>
 </resources>

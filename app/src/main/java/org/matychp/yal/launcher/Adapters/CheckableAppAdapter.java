@@ -1,4 +1,4 @@
-package org.matychp.yal.launcher;
+package org.matychp.yal.launcher.Adapters;
 
 import android.app.Activity;
 import android.content.Context;
@@ -11,14 +11,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.matychp.yal.R;
+import org.matychp.yal.launcher.POJO.CheckableApp;
 
 import java.util.List;
 
-public class ItemWCBAdapter extends ArrayAdapter<ItemWCB> implements View.OnClickListener{
+public class CheckableAppAdapter extends ArrayAdapter<CheckableApp> implements View.OnClickListener{
 
     private Context context;
 
-    public ItemWCBAdapter(Context context, int resourceId, List<ItemWCB> items){
+    public CheckableAppAdapter(Context context, int resourceId, List<CheckableApp> items){
         super(context, resourceId, items);
         this.context = context;
     }
@@ -38,11 +39,11 @@ public class ItemWCBAdapter extends ArrayAdapter<ItemWCB> implements View.OnClic
 
     public View getView(int position, View convertView, ViewGroup parent){
         ViewHolder holder;
-        ItemWCB rowItem = getItem(position);
+        CheckableApp rowItem = getItem(position);
 
         LayoutInflater mInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         if(convertView == null){
-            convertView =   mInflater.inflate(R.layout.item_with_checkbox, null);
+            convertView =   mInflater.inflate(R.layout.checkable_app, null);
             holder = new ViewHolder();
             holder.cb_selected = convertView.findViewById(R.id.cb_selected);
             holder.tv_name = convertView.findViewById(R.id.tv_name);

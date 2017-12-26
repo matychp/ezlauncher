@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".launcher.MainActivity"
+        <activity android:name=".launcher.Activities.Home"
             android:launchMode="singleTask"
             android:stateNotNeeded="true"
             android:theme="@style/AppTheme.Wallpaper">
@@ -21,10 +21,10 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".launcher.SelectApps"
+        <activity android:name=".launcher.Activities.SelectApps"
             android:theme="@style/AppTheme.Wallpaper">
         </activity>
-        <activity android:name=".launcher.Settings"
+        <activity android:name=".launcher.Activities.Settings"
             android:theme="@style/AppTheme.Wallpaper">
         </activity>
     </application>

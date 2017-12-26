@@ -1,4 +1,4 @@
-package org.matychp.yal.launcher;
+package org.matychp.yal.launcher.Activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -15,9 +15,9 @@ import org.matychp.yal.R;
 
 public class Settings extends AppCompatActivity{
 
-    Switch swt_editapps;
+    Switch swt_selectapps;
 
-    Button btn_done;
+    Button btn_done, btn_cancel;
 
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
@@ -25,39 +25,46 @@ public class Settings extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
+        setContentView(R.layout.settings);
 
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
         editor = preferences.edit();
 
-        swt_editapps = findViewById(R.id.swt_editapps);
+        swt_selectapps = findViewById(R.id.swt_editapps);
         btn_done = findViewById(R.id.btn_done_activity_settings);
+        btn_cancel = findViewById(R.id.btn_cancel_activity_settings);
 
         loadSettings();
+        addOnClickListener();
+    }
 
-        swt_editapps.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean state) {
-                if (state){
-                    editor.putBoolean("swt_editapps", true);
-                } else {
-                    editor.putBoolean("swt_editapps", false);
-                }
-                editor.commit();
-            }
-        });
-
+    /**
+     * Agrega los Listener de esta activity.
+     */
+    private void addOnClickListener(){
         btn_done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
+                editor.putBoolean("swt_editapps",swt_selectapps.isChecked());
+                editor.commit();
                 setResult(Activity.RESULT_OK, intent);
+                finish();
+            }
+        });
+        btn_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setResult(Activity.RESULT_CANCELED);
                 finish();
             }
         });
     }
 
+    /**
+     * Carga los settings almacenados localmente.
+     */
     private void loadSettings() {
-        swt_editapps.setChecked(preferences.getBoolean("swt_editapps", true));
+        swt_selectapps.setChecked(preferences.getBoolean("swt_editapps", true));
     }
 }
