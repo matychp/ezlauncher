@@ -6,7 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="org.matychp.yal.launcher.Activities.SelectApps">
+    tools:context="org.matychp.yal.launcher.Activities.SelectApps"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    android:layout_marginTop="15dp"
+    android:layout_marginBottom="15dp">
 
     <ListView
         android:id="@+id/lv_checkList"
@@ -15,17 +19,12 @@
         app:layout_constraintBottom_toTopOf="@+id/btn_cancel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="30dp"/>
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <Button
         android:id="@+id/btn_cancel"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
         android:background="@color/cancel"
         android:text="@string/cancel"
         android:textColor="@android:color/white"
@@ -39,9 +38,6 @@
         android:id="@+id/btn_done"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
         android:background="@color/colorAccent"
         android:text="@string/btn_done"
         android:textColor="@android:color/white"

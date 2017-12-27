@@ -13,4 +13,6 @@
     <string name="swt_selectapps">Editar Aplicaciones</string>
     <string name="cancel">Cancelar</string>
     <string name="set_wallpaper">Elegir el fondo de pantalla</string>
+    <string name="successfully_set_wallpaper">Se ha cambiado el wallpaper de forma exitosa.</string>
+    <string name="select_image">Selecciona una imagen:</string>
 </resources>

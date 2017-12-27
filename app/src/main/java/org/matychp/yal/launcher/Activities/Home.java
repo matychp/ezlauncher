@@ -29,16 +29,16 @@ import java.util.List;
 
 public class Home extends AppCompatActivity {
 
-    ListView listView;
+    private ListView listView;
 
-    AppAdapter appAdapter;
+    private AppAdapter appAdapter;
 
-    List<App> apps;
+    private List<App> apps;
 
     private static final int NEW_APPS = 1;
     private static final int SETTINGS = 2;
 
-    SharedPreferences preferences;
+    private SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -175,5 +175,9 @@ public class Home extends AppCompatActivity {
 
             stringToApps(apps);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
     }
 }

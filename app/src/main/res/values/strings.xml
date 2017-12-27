@@ -13,4 +13,6 @@
     <string name="swt_selectapps">Edit apps on/off</string>
     <string name="cancel">Cancel</string>
     <string name="set_wallpaper">Set a wallpaper</string>
+    <string name="successfully_set_wallpaper">The wallpaper has been changed successfully.</string>
+    <string name="select_image">Select an image:</string>
 </resources>

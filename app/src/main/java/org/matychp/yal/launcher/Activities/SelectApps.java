@@ -31,13 +31,13 @@ import java.util.List;
 
 public class SelectApps extends AppCompatActivity {
 
-    ListView listView;
+    private ListView listView;
 
-    CheckableAppAdapter checkableAppAdapter;
+    private CheckableAppAdapter checkableAppAdapter;
 
-    List<CheckableApp> apps;
+    private List<CheckableApp> apps;
 
-    Button btn_done, btn_cancel;
+    private Button btn_done, btn_cancel;
 
     /**
      * Obtiene todas las aplicaciones instaladas, las ordena, permite seleccionarlas para que se muestren
