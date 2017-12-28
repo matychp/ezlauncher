@@ -26,29 +26,29 @@
         android:paddingRight="18dp"/>
 
     <Button
-        android:id="@+id/btn_done_activity_settings"
+        android:id="@+id/btn_cancel_activity_settings"
+        android:background="@color/cancel"
+        android:text="@string/cancel"
+        android:textColor="@android:color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:background="@color/colorAccent"
-        android:text="@string/btn_done"
-        android:textColor="@android:color/white"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btn_cancel_activity_settings"
+        android:id="@+id/btn_done_activity_settings"
+        android:background="@color/colorAccent"
+        android:text="@string/btn_done"
+        android:textColor="@android:color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
-        android:background="@color/cancel"
-        android:text="@string/cancel"
-        android:textColor="@android:color/white"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_done_activity_settings"
+        app:layout_constraintBottom_toTopOf="@+id/btn_cancel_activity_settings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

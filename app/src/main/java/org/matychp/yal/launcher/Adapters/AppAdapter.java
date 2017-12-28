@@ -10,15 +10,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.matychp.yal.R;
-import org.matychp.yal.launcher.POJO.App;
+import org.matychp.yal.launcher.POJO.AppIcon;
 
 import java.util.List;
 
-public class AppAdapter extends ArrayAdapter<App>{
+public class AppAdapter extends ArrayAdapter<AppIcon>{
 
     private Context context;
 
-    public AppAdapter(Context context, int resourceId, List<App> apps){
+    public AppAdapter(Context context, int resourceId, List<AppIcon> apps){
         super(context, resourceId, apps);
         this.context = context;
     }
@@ -30,7 +30,7 @@ public class AppAdapter extends ArrayAdapter<App>{
 
     public View getView(int position, View convertView, ViewGroup parent){
         ViewHolder holder;
-        App rowApp = getItem(position);
+        AppIcon rowApp = getItem(position);
 
         LayoutInflater mInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         if(convertView == null){
