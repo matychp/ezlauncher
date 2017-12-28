@@ -89,24 +89,25 @@ public class Home extends AppCompatActivity {
      */
     private void loadFunctions() {
         Resources res = getResources();
+        Drawable icon = null;
 
         //Select Apps Button
         if (preferences.getBoolean("swt_editapps", true)) {
-            Drawable addIcon = res.getDrawable(R.drawable.ic_select_apps);
+            icon = res.getDrawable(R.drawable.ic_select_apps);
 
             apps.add(new AppIcon(
                     getString(R.string.btn_editapps_activity_main),
                     "SelectApps.class",
-                    addIcon
+                    icon
             ));
         }
 
         //Settings Button
-        Drawable addIcon = res.getDrawable(R.drawable.ic_settings);
+        icon = res.getDrawable(R.drawable.ic_settings);
         apps.add(new AppIcon(
                 getString(R.string.btn_settings_activity_main),
                 "Settings.class",
-                addIcon
+                icon
         ));
     }
 
@@ -161,12 +162,11 @@ public class Home extends AppCompatActivity {
             }.getType();
             List<App> savedApps = gson.fromJson(savedList, type);
             for (App app : savedApps){
-                Drawable icon = null;
+                Drawable icon = getResources().getDrawable(R.drawable.ic_launcher_background);
                 try {
                     icon = pm.getActivityIcon(new ComponentName(
                             app.getPkg(),
-                            app.getPkg()+"."+app.getActivity()
-                    ));
+                            app.getActivity()));
                 } catch (PackageManager.NameNotFoundException e) {
                     e.printStackTrace();
                 }
